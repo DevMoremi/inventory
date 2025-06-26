@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'oxygen', sans-serif;
+}
+
+.contain {
+    padding-top: 2rem;
+}
+
+section {
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 1.75rem;
+    padding-bottom: .5rem;
+}
+
+.form-floating {
+    margin-bottom: 2rem;
+    box-shadow: 0 0 1.5px 1px #efefef;
+    border-radius: 5px;
+}
+
+.select {
+    width: 100%;
+    height: 3.5rem;
+    border: 1px solid #DEE2E6;
+    border-radius: 5px;
+}
+
+select {
+    outline: 0;
+    border: 0;
+    font-size: 1.2rem;
+    padding: .75rem 0 .2rem .5rem;
+    appearance: none;
+
+}
+
+select::after {
+    color: pink;
+}
+
+#submit {
+    padding: .2rem 2rem;
+    background-color: green;
+    border-radius: 5px;
+    border: 0;
+}
+
+.delete {
+    background-color: red;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    vertical-align: middle;
+    padding: 0 .4rem;
+    margin-left: 1rem;
+    font-size: .75rem;
+}
+
+.input {
+    padding: 0 1.5rem;
+}
