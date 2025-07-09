@@ -10,10 +10,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'oxygen', sans-serif;
+    background-color: #FFDED4;
 }
 
 .contain {
     padding-top: 2rem;
+    background-color: #FFEDE5;
+    border-radius: 10px;
 }
 
 section {
@@ -21,46 +24,61 @@ section {
 }
 
 h1 {
-    font-size: 1.75rem;
-    padding-bottom: .5rem;
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 1rem;
+
+    font-weight: 600;
+}
+p{
+    margin-top: 0;
+    text-align: center;
 }
 
 .form-floating {
     margin-bottom: 2rem;
     box-shadow: 0 0 1.5px 1px #efefef;
     border-radius: 5px;
+    background-color: #FFEDE5;
+}
+.form-control{
+    border: #FAD3C6;
 }
 
 .select {
-    width: 100%;
     height: 3.5rem;
-    border: 1px solid #DEE2E6;
+    border: 1px solid #F8C5B2;
     border-radius: 5px;
 }
+.form-floating > .form-control{
+    background-color: #FFEDE5;
+    border: 1px solid #F8C5B2;
+}   
 
+.form-floating>.form-control:not(:placeholder-shown)~label::after{
+    background-color: #FFEDE5;
+
+}
 select {
     outline: 0;
     border: 0;
     font-size: 1rem;
     padding: .75rem 0 .2rem .5rem;
     appearance: none;
+    background-color: #FFEDE5;
 
-}
-
-select::after {
-    color: pink;
 }
 
 #submit {
     padding: .2rem 2rem;
-    background-color: green;
+    margin-bottom: 1rem;
+    background-color: #EF7663;
     border-radius: 5px;
     border: 0;
 }
 
 .delete {
-    background-color: red;
-    color: #fff;
+    background-color: #EF7663;
     border: 0;
     border-radius: 3px;
     vertical-align: middle;
@@ -71,4 +89,53 @@ select::after {
 
 .input {
     padding: 0 1.5rem;
+}
+
+ .image-section img{
+    width: 20vw;
+}
+
+.image-section img{
+    border-radius: 10px;
+    padding-right: 2rem;
+}
+
+tr th{
+    background-color: #FFD9CA ! important;
+}
+tr td{
+    background-color: #FFECE5 !important;
+}
+
+
+
+@media(max-width:700px ){
+    .image-section img{
+        display: none;
+    }
+    .input-section{
+        width: 80%;
+        padding: 0;
+        margin: 0 auto;
+
+    }
+    
+}
+@media(min-width:700px){
+    .contain{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 1.5rem;
+    }
+    .input-section{
+        width: 50%;
+    }
+    .image-section{
+        width: 40%;
+    }
+    .image-section img{
+        width: 100%;
+    }
+    
+
 }
