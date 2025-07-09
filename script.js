@@ -1,7 +1,7 @@
 const form = document.getElementById('form-content');
+
 // the event adding input data to the table ,saving my objects(data) in an array, checking if the localstorage is empty, the array should be displayed as empty
 // also making sure empty values are not getting added to the table.
-
 form.addEventListener('submit', function (evt) {
     evt.preventDefault()
     const name = document.getElementById('product-name').value;
@@ -15,8 +15,12 @@ form.addEventListener('submit', function (evt) {
     }
     products = JSON.parse(products);
 
+
+    let max = 1000;
+    let randomNum = Math.floor(Math.random() * max);
+
     const productItem = {};
-    productItem.id = Math.random().toFixed(2);
+    productItem.id = randomNum;
     productItem.name = name;
     productItem.type = type;
     productItem.price = parseInt(price);
@@ -26,8 +30,9 @@ form.addEventListener('submit', function (evt) {
     products.push(productItem);
 
     let table = document.getElementById('tbody');
-    newRow = table.insertRow(-1);
     if (Object.values(productItem).every(isNotEmpty)) {
+        newRow = table.insertRow(0);
+
         newRow.insertCell(0).textContent = productItem.id;
         newRow.insertCell(1).textContent = name;
         newRow.insertCell(2).textContent = type;
@@ -40,11 +45,13 @@ form.addEventListener('submit', function (evt) {
         newRow.insertCell(6).appendChild(button)
         localStorage.setItem('products', JSON.stringify(products));
         evt.target.reset()
+        sumTotal();
+
+
     } else {
         alert("Please fill all fields")
     }
-    sumTotal();
-
+        
 })
 
 
@@ -102,6 +109,7 @@ function createDeleteButton(id) {
     })
     return button;
 }
+
 
 //the function adding all the total values.
 function sumTotal() {
