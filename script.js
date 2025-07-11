@@ -101,7 +101,7 @@ function createDeleteButton(id) {
     button.innerHTML = "delete";
     button.classList.add('delete');
     button.addEventListener('click', (e) => {
-        if(confirm("are you sure?")=== true){
+        if(confirm("Are you sure?")=== true){
             e.target.parentNode.parentNode.remove();
             sumTotal();
             let rowData = JSON.parse(localStorage.getItem('products'));
