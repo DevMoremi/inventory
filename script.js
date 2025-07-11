@@ -101,11 +101,15 @@ function createDeleteButton(id) {
     button.innerHTML = "delete";
     button.classList.add('delete');
     button.addEventListener('click', (e) => {
-        e.target.parentNode.parentNode.remove();
-        sumTotal();
-        let rowData = JSON.parse(localStorage.getItem('products'));
-        const newRow = rowData.filter(product => product.id !== id);
-        localStorage.setItem('products', JSON.stringify(newRow));
+        if(confirm("are you sure?")=== true){
+            e.target.parentNode.parentNode.remove();
+            sumTotal();
+            let rowData = JSON.parse(localStorage.getItem('products'));
+            const newRow = rowData.filter(product => product.id !== id);
+            localStorage.setItem('products', JSON.stringify(newRow));
+        }else{
+            
+        }
     })
     return button;
 }
