@@ -23,16 +23,15 @@ form.addEventListener('submit', function (evt) {
     productItem.id = randomNum;
     productItem.name = name;
     productItem.type = type;
-    productItem.price = parseInt(price);
-    productItem.quantity = parseInt(quantity);
+    productItem.price = price === '' ? price : parseInt(price);
+    productItem.quantity = quantity === '' ? quantity : parseInt(quantity);
     productItem.total = price * quantity;
 
     products.push(productItem);
 
-    let table = document.getElementById('tbody');
+    let table = document.getElementById('tbody');    
     if (Object.values(productItem).every(isNotEmpty)) {
         newRow = table.insertRow(0);
-
         newRow.insertCell(0).textContent = productItem.id;
         newRow.insertCell(1).textContent = name;
         newRow.insertCell(2).textContent = type;
@@ -57,7 +56,7 @@ form.addEventListener('submit', function (evt) {
 
 // the funtion validating if the values of the obj properties(input data) are not empty
 function isNotEmpty(value) {
-    return value !== '' && value !== null;
+    return value !== '' && value !== null; 
 }
 // the function displaying the table data even after the page refreshes 
 function showProducts() {
@@ -101,14 +100,12 @@ function createDeleteButton(id) {
     button.innerHTML = "delete";
     button.classList.add('delete');
     button.addEventListener('click', (e) => {
-        if(confirm("Are you sure?")=== true){
+        if(confirm("Are you sure?") === true){
             e.target.parentNode.parentNode.remove();
             sumTotal();
             let rowData = JSON.parse(localStorage.getItem('products'));
             const newRow = rowData.filter(product => product.id !== id);
             localStorage.setItem('products', JSON.stringify(newRow));
-        }else{
-            
         }
     })
     return button;
